@@ -48,5 +48,64 @@ city: str | None = None -> none is allowed in this case
     def get_marks(marks: int = Body()): by using this body() we can directly get the data from frontend 
 
 
-![alt text](image.png)
+![alt text](/images/image.png)
+
+
+
+=> Nested BaseModel 
+
+
+class Marks(BaseModel):
+    maths: int
+    physics: int
+    chemistry: int
+
+class Student(BaseModel):
+    name: str
+    roll_no: int
+    marks: Marks
+
+
+Note := if we want to do like phone number isoptional so we can do phone: str | None = None 
+
+
+=> HTTP headers.
+
+Headers are additional information sent along with an HTTP request.
+
+async function sendData() {
+  const response = await fetch("http://localhost:8000/read-header/", {
+    method: "GET", // Change to "POST" if sending a body payload
+    headers: {
+      "x-custom-token": "my-super-secret-token",
+      "Content-Type": "application/json" // Required if sending a JSON body
+    },
+    // body: JSON.stringify({ key: "value" }) // Uncomment for POST/PUT requests
+  });
+
+  const data = await response.json();
+  console.log(data);
+}
+
+
+===> this is how we have to send data to this fastAPI server 
+
+=> Cookie() in FastAPI
+
+A cookie is a small piece of information stored by the browser and sent back to a website with later requests.
+
+Session management
+Remembering preferences
+Tracking login sessions
+
+![alt text](/images/image-1.png) comparision of all methods 
+
+
+Part 5: Annotated
+
+Annotated[BaseType, Metadata1, Metadata2, ...] this is the basic syntax of this Annotated 
+
+Old Syntax VS New Syntax using Annotated
+
+![alt text](/images/image-2.png)
 
