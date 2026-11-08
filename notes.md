@@ -109,3 +109,27 @@ Old Syntax VS New Syntax using Annotated
 
 ![alt text](/images/image-2.png)
 
+===> default_factory
+
+class Post(BaseModel):
+    title: str
+    # Generates a brand-new empty list for every post
+    tags: list[str] = Field(default_factory=list)
+    # Generates a brand-new empty dictionary for metadata
+    metadata: dict[str, str] = Field(default_factory=dict)
+
+
+
+ConfigDict
+
+Let's understand:
+- model_config is a special class attribute recognized by Pydantic.
+- ConfigDict() defines configuration options.
+- extra="forbid" rejects fields that aren't defined in the model.
+Now if someone sends the unknown field, Pydantic returns a validation error.
+3. Three important extra-field settings
+This is important for API development.
+Setting	Behavior
+extra="ignore"	Ignores extra fields (default)
+extra="forbid"	Rejects extra fields
+extra="allow"	Accepts and stores extra fields
