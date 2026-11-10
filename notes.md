@@ -133,3 +133,18 @@ Setting	Behavior
 extra="ignore"	Ignores extra fields (default)
 extra="forbid"	Rejects extra fields
 extra="allow"	Accepts and stores extra fields
+
+ model_config = ConfigDict(
+        extra="whatever you want from those 3"
+    )
+
+
+model_config = ConfigDict(strict=True) => With strict mode, a string "19" is rejected because the field expects an integer. but normaly pydantic model convert "19" into 19
+
+model_config = ConfigDict(validate_assignment=True) => student = Student(age=19) student.age = "hello" With validate_assignment=True, Pydantic validates the assignment and rejects it.
+
+Populate by field name => model_config = ConfigDict(populate_by_name=True) , student_name: str = Field(alias="name") => it 
+
+![alt text](/images/image-3.png)
+
+![alt text](image-1.png)
