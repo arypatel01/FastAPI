@@ -148,3 +148,5 @@ Populate by field name => model_config = ConfigDict(populate_by_name=True) , stu
 ![alt text](/images/image-3.png)
 
 ![alt text](image-1.png)
+
+![alt text](image-2.png) this is part of response model
